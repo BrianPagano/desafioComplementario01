@@ -1,6 +1,5 @@
 const { Router } = require('express')
 const router = Router()
-const message = require('../DAO/models/messages.model')
 
 router.get('/', async (req, res) => {
     try {

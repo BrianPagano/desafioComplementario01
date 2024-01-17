@@ -3,6 +3,7 @@ const socket = io()
 const chatBox = document.getElementById('chatBox')
 const messageLogs = document.getElementById('messageLogs')
 
+
 const getUsername = async () => {
     try {
         const username = await Swal.fire({
@@ -55,8 +56,8 @@ const getUsername = async () => {
 
 getUsername()
 
-socket.on ('messageLogs', chats=> {
-    let messages = ''
-    chats.forEach(chat => (messages += `${chat.user} dice:${chat.message} <hr>`))
-    messageLogs.innerHTML = messages
-})
+socket.on('messageLogs', chats => {
+  let messages = '';
+  chats.forEach(chat => (messages = `${chat.user} dice:${chat.message} <hr>` + messages));
+  messageLogs.innerHTML = messages;
+});

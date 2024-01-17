@@ -5,6 +5,7 @@ const { Server } = require("socket.io")
 const handlebars = require('express-handlebars')
 const mongoConnect = require('./db')
 const chats = []
+const Messages = require ('./DAO/models/messages.model')
 
 const app = express()
 
@@ -38,15 +39,22 @@ io.on ('connection', (socket) => {
     socket.emit ('messageLogs', chats)
     
   })
-  socket.on ('message', data => {
+  socket.on ('message', async data => {
     chats.push(data) //aca guardo la data en un array
     io.emit ('messageLogs', chats) 
+    try {
+      const NewMessage = {
+        user: data.user,
+        message: data.message,
+      }
+      await Messages.create(NewMessage)
+    } catch(error){
+      console.log (error)
+    }
+  })
 })
-})
-
 
 app.locals.io = io
-
 
 mongoConnect()
 
