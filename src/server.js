@@ -4,6 +4,7 @@ const { port } = require('./configs/server.config')
 const { Server } = require("socket.io")
 const handlebars = require('express-handlebars')
 const mongoConnect = require('./db')
+const chats = []
 
 const app = express()
 
@@ -31,14 +32,21 @@ const httpServer = app.listen(port, () => {
 
 const io = new Server(httpServer);
 
-io.on ('connection', (websocket) => {
-  websocket.on ('messagefront', (data) => {
-    console.log ('mensaje desde el front', data)
+io.on ('connection', (socket) => {  
+  socket.on('newUser', data => {
+    socket.broadcast.emit ('userConnected', data)
+    socket.emit ('messageLogs', chats)
+    
   })
-  websocket.emit ('messageServer', "soy servidor")
+  socket.on ('message', data => {
+    chats.push(data) //aca guardo la data en un array
+    io.emit ('messageLogs', chats) 
+})
 })
 
+
 app.locals.io = io
+
 
 mongoConnect()
 
