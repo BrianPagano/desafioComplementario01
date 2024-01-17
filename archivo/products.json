@@ -1,0 +1,35 @@
+[
+	{
+		"id": 1,
+		"title": "Descorchador electrónico",
+		"description": "Destapador a pila con corta plomo incluido. Utiliza 4 pilas AA. Se recomienda utilizar pilas alcalina (ENERGIZER/DURACELL) para un óptimo funcionamiento.",
+		"price": 19.99,
+		"thumbnail": "DE710.JPG",
+		"code": "DE710",
+		"stock": 10,
+		"status": true,
+		"category": "descorchador"
+	},
+	{
+		"id": 2,
+		"title": "Descorchador electrónico con luz",
+		"description": "Destapador a pila con luz led azul, con corta plomo incluido.Utiliza 4 pilas AA.Se recomienda utilizar pilas alcalina (ENERGIZER/DURACELL) para un óptimo funcionamiento.",
+		"price": 19.99,
+		"thumbnail": "DE762.JPG",
+		"code": "DE762",
+		"stock": 10,
+		"status": true,
+		"category": "descorchador"
+	},
+	{
+		"id": 3,
+		"title": "Descorchador 2 tiempos Plata",
+		"description": "Destapador 2 tiempos plata especial en estuche.El Espiral esta compuesto de teflón Dupont, un material que permite que el corcho no se desgrane al momento de destapar la botella.",
+		"price": 19.99,
+		"thumbnail": "DE192.JPG",
+		"code": "DE192",
+		"stock": 10,
+		"status": true,
+		"category": "descorchador"
+	}
+]
